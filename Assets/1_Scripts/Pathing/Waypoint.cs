@@ -1,11 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace LD47.Pathing
 {
     public class Waypoint : MonoBehaviour
     {
+        private const string TAG = "Player";
+
+        [SerializeField] bool isPickedUp = false;
+        [SerializeField] ParticleSystem waypointFX;
         [Header("Waypoint Rotation")]
         [SerializeField] float degreesPerSecond = 15.0f;
         [SerializeField] float amplitude = 0.5f;
@@ -13,20 +15,27 @@ namespace LD47.Pathing
 
         Vector3 posOffset = new Vector3();
         Vector3 tempPos = new Vector3();
+        GameObject obj_player;
 
-        // Start is called before the first frame update
         void Awake()
         {
+            obj_player = GameObject.FindWithTag(TAG);
             posOffset = transform.position;
         }
 
-        // Update is called once per frame
         void Update()
         {
-            Rotate();
-            OscillateVertically();
+            if (isPickedUp)
+            {
+                transform.position = obj_player.transform.position;
+            }
+            else
+            {
+                Rotate();
+                OscillateVertically();
+            }     
         }
-        
+
         void OscillateVertically()
         {
             tempPos = posOffset;
@@ -38,6 +47,21 @@ namespace LD47.Pathing
         void Rotate()
         {
             transform.Rotate(new Vector3(0f, Time.deltaTime * degreesPerSecond, 0f), Space.World);
+        }
+
+        public void PickupWaypoint()
+        {
+            GetComponentInChildren<MeshRenderer>().enabled = false;
+            waypointFX.Stop();
+            isPickedUp = true;
+        }
+
+        public void PlaceWaypoint()
+        {
+            GetComponentInChildren<MeshRenderer>().enabled = true;
+            waypointFX.Play();
+            isPickedUp = false;
+            posOffset = transform.position;
         }
     }
 }
