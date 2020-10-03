@@ -34,9 +34,10 @@ namespace LD47.Control
         void Awake()
         {
             obj_player = GameObject.FindWithTag(TAG);
+            cmp_mover = GetComponent<Mover>();
             // cmp_fighter = GetComponent<Fighter>();
             // cmp_health = GetComponent<Health>();
-            // cmp_mover = GetComponent<Mover>();
+            
 
             guardPosition = GetGuardPosition();
         }
