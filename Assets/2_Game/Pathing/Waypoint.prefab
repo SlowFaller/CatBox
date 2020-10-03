@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5572132314721260795}
-  - component: {fileID: 5168006607044913399}
+  - component: {fileID: 5969379770086916258}
+  - component: {fileID: 3537824149977889296}
   m_Layer: 0
   m_Name: Waypoint
-  m_TagString: Untagged
+  m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,7 +35,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5168006607044913399
+--- !u!114 &5969379770086916258
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,12 +44,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 5572132314721260792}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b48f873552963ab45b27b8ce35972907, type: 3}
+  m_Script: {fileID: 11500000, guid: 25ba8808e2f1beb489743a53d18bf35b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  degreesPerSecond: 62.95
+  isPickedUp: 0
+  waypointFX: {fileID: 2692141638121946410}
+  degreesPerSecond: 70
   amplitude: 0.1
-  frequency: 0.34
+  frequency: 0.35
+--- !u!135 &3537824149977889296
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5572132314721260792}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &253363490943631267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -215,6 +231,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5572132314721260795}
     m_Modifications:
+    - target: {fileID: 858695582732852455, guid: b8b9e50c67e222545b079a830f348c0a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 866427216682740267, guid: b8b9e50c67e222545b079a830f348c0a,
         type: 3}
       propertyPath: m_Name
@@ -224,6 +245,76 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825913894768010580, guid: b8b9e50c67e222545b079a830f348c0a,
+        type: 3}
+      propertyPath: TrailModule.lifetime.scalar
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825913894768010580, guid: b8b9e50c67e222545b079a830f348c0a,
+        type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxColor.r
+      value: 0.29355025
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825913894768010580, guid: b8b9e50c67e222545b079a830f348c0a,
+        type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825913894768010580, guid: b8b9e50c67e222545b079a830f348c0a,
+        type: 3}
+      propertyPath: TrailModule.widthOverTrail.minMaxState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825913894768010580, guid: b8b9e50c67e222545b079a830f348c0a,
+        type: 3}
+      propertyPath: TrailModule.widthOverTrail.scalar
+      value: 0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825913894768010580, guid: b8b9e50c67e222545b079a830f348c0a,
+        type: 3}
+      propertyPath: TrailModule.widthOverTrail.maxCurve.m_Curve.Array.data[0].inSlope
+      value: -0.5272658
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825913894768010580, guid: b8b9e50c67e222545b079a830f348c0a,
+        type: 3}
+      propertyPath: TrailModule.widthOverTrail.maxCurve.m_Curve.Array.data[0].outSlope
+      value: -0.5272658
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825913894768010580, guid: b8b9e50c67e222545b079a830f348c0a,
+        type: 3}
+      propertyPath: TrailModule.widthOverTrail.maxCurve.m_Curve.Array.data[0].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825913894768010580, guid: b8b9e50c67e222545b079a830f348c0a,
+        type: 3}
+      propertyPath: TrailModule.widthOverTrail.maxCurve.m_Curve.Array.data[0].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825913894768010580, guid: b8b9e50c67e222545b079a830f348c0a,
+        type: 3}
+      propertyPath: TrailModule.widthOverTrail.maxCurve.m_Curve.Array.data[1].value
+      value: 0.53846157
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825913894768010580, guid: b8b9e50c67e222545b079a830f348c0a,
+        type: 3}
+      propertyPath: TrailModule.widthOverTrail.maxCurve.m_Curve.Array.data[1].inSlope
+      value: -0.5272658
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825913894768010580, guid: b8b9e50c67e222545b079a830f348c0a,
+        type: 3}
+      propertyPath: TrailModule.widthOverTrail.maxCurve.m_Curve.Array.data[1].outSlope
+      value: -0.5272658
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825913894768010580, guid: b8b9e50c67e222545b079a830f348c0a,
+        type: 3}
+      propertyPath: TrailModule.widthOverTrail.maxCurve.m_Curve.Array.data[1].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825913894768010580, guid: b8b9e50c67e222545b079a830f348c0a,
+        type: 3}
+      propertyPath: TrailModule.widthOverTrail.maxCurve.m_Curve.Array.data[1].outWeight
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2743261975531065571, guid: b8b9e50c67e222545b079a830f348c0a,
         type: 3}
@@ -285,6 +376,12 @@ PrefabInstance:
 --- !u!4 &1880426251316791453 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2743261975531065571, guid: b8b9e50c67e222545b079a830f348c0a,
+    type: 3}
+  m_PrefabInstance: {fileID: 4326441422091917438}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &2692141638121946410 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1825913894768010580, guid: b8b9e50c67e222545b079a830f348c0a,
     type: 3}
   m_PrefabInstance: {fileID: 4326441422091917438}
   m_PrefabAsset: {fileID: 0}

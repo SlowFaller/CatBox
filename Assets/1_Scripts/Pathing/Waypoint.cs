@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace LD47.Pathing
 {
@@ -9,6 +7,7 @@ namespace LD47.Pathing
         private const string TAG = "Player";
 
         [SerializeField] bool isPickedUp = false;
+        [SerializeField] ParticleSystem waypointFX;
         [Header("Waypoint Rotation")]
         [SerializeField] float degreesPerSecond = 15.0f;
         [SerializeField] float amplitude = 0.5f;
@@ -17,8 +16,6 @@ namespace LD47.Pathing
         Vector3 posOffset = new Vector3();
         Vector3 tempPos = new Vector3();
         GameObject obj_player;
-        ParticleSystem cmp_waypointFX;
-        MeshRenderer cmp_meshRenderer;
 
         void Awake()
         {
@@ -52,21 +49,18 @@ namespace LD47.Pathing
             transform.Rotate(new Vector3(0f, Time.deltaTime * degreesPerSecond, 0f), Space.World);
         }
 
-        void PickupWaypoint()
+        public void PickupWaypoint()
         {
-            cmp_meshRenderer.enabled = false;
-            cmp_waypointFX.IsAlive(false);
+            GetComponentInChildren<MeshRenderer>().enabled = false;
+            waypointFX.Stop();
             isPickedUp = true;
-
         }
 
-        void PlaceWaypoint()
+        public void PlaceWaypoint()
         {
-            cmp_meshRenderer.enabled = true;
-            cmp_waypointFX.IsAlive(true);
+            GetComponentInChildren<MeshRenderer>().enabled = true;
+            waypointFX.Play();
             isPickedUp = false;
         }
-
     }
-
 }
