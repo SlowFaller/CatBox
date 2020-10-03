@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace LD47.Control
+namespace LD47.Pathing
 {
     public class PatrolPath : MonoBehaviour
     {
@@ -11,7 +11,7 @@ namespace LD47.Control
             for (int i = 0; i < transform.childCount; i++)
             {
                 int j = GetNextIndex(i);
-                Gizmos.DrawSphere(GetWaypointPosition(i), waypointGizmoRadius);
+                //Gizmos.DrawSphere(GetWaypointPosition(i), waypointGizmoRadius);
                 Gizmos.DrawLine(GetWaypointPosition(i), GetWaypointPosition(j));
             }
         }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using LD47.Core;
+using LD47.Pathing;
 
 namespace LD47.Control
 {
