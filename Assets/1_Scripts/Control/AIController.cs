@@ -40,7 +40,12 @@ namespace LD47.Control
             // cmp_health = GetComponent<Health>();
             
 
-            guardPosition = GetGuardPosition();
+            
+        }
+
+        void Start()
+        {
+            transform.position = patrolPath.GetWaypointPosition(0);
         }
 
 
