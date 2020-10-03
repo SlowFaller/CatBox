@@ -30,7 +30,7 @@ namespace LD47.Control
 
             if (Input.GetKeyDown(KeyCode.F))
             {
-                GetComponent<Player>().PickupWaypoint();
+                GetComponent<Player>().InteractWithWaypoint();
             }
         }
         

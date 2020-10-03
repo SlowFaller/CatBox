@@ -61,6 +61,7 @@ namespace LD47.Pathing
             GetComponentInChildren<MeshRenderer>().enabled = true;
             waypointFX.Play();
             isPickedUp = false;
+            posOffset = transform.position;
         }
     }
 }
