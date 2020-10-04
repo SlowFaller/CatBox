@@ -21,15 +21,15 @@ namespace LD47.Control
         [SerializeField] [Range(0, 2f)] float waypointTolerance = 1f;
 
         GameObject obj_player;
-        // Fighter cmp_fighter;
+        //Fighter cmp_fighter;
         // Health cmp_health;
         Mover cmp_mover;
 
         int currentWaypointIndex = 0; 
         float timeSinceLastArrived = Mathf.Infinity;
         Vector3 guardPosition;
-        // float timeSinceLastSawPlayer = Mathf.Infinity;
-        // float timeSinceAggro = Mathf.Infinity;
+        float timeSinceLastSawPlayer = Mathf.Infinity;
+        float timeSinceAggro = Mathf.Infinity;
         
 
         void Awake()
@@ -53,18 +53,18 @@ namespace LD47.Control
         {
             // if (cmp_health.IsDead()) { return; }
 
-            // if (IsEnemyActivated())
-            // {
-            //     AttackBehavior();
-            // }
-            // else if (IsSuspicious())
-            // {
-            //     WaitingBehavior();
-            // }
-            // else
-            // {
-            //     PatrolBehavior();
-            // }
+            if (IsEnemyActivated())
+            {
+                AttackBehavior();
+            }
+            else if (IsSuspicious())
+            {
+                WaitingBehavior();
+            }
+            else
+            {
+                PatrolBehavior();
+            }
 
             PatrolBehavior();
 
@@ -76,48 +76,48 @@ namespace LD47.Control
             return transform.position;
         }
 
-        // bool InAttackRange()
-        // {
-        //     float distanceFromPlayer = Vector3.Distance(obj_player.transform.position, transform.position);
+        bool InAttackRange()
+        {
+            float distanceFromPlayer = Vector3.Distance(obj_player.transform.position, transform.position);
 
-        //     return (distanceFromPlayer < chaseDistance);
-        // }
+            return (distanceFromPlayer < chaseDistance);
+        }
 
-        // bool IsEnemyActivated()
-        // {
-        //     return IsAggro() || (InAttackRange() && cmp_fighter.CanAttack(obj_player));
-        // }
+        bool IsEnemyActivated()
+        {
+            return IsAggro() || (InAttackRange());// && cmp_fighter.CanAttack(obj_player));
+        }
 
-        // bool IsAggro()
-        // {
-        //     return timeSinceAggro < aggroCooldownTime;
-        // }
+        bool IsAggro()
+        {
+            return timeSinceAggro < aggroCooldownTime;
+        }
 
-        // bool IsSuspicious()
-        // {
-        //     return timeSinceLastSawPlayer < suspicionTime;
-        // }
+        bool IsSuspicious()
+        {
+            return timeSinceLastSawPlayer < suspicionTime;
+        }
 
-        // void AttackBehavior()
-        // {
-        //     timeSinceLastSawPlayer = 0;
-        //     AggrovateNeighbourEnemies();
-        //     cmp_mover.SetMoveSpeed(attackMovementSpeed);
-        //     cmp_fighter.Attack(obj_player);
-        // }
+        void AttackBehavior()
+        {
+            timeSinceLastSawPlayer = 0;
+            AggrovateNeighbourEnemies();
+            cmp_mover.SetMoveSpeed(attackMovementSpeed);
+            //cmp_fighter.Attack(obj_player);
+        }
 
-        // private void AggrovateNeighbourEnemies()
-        // {
-        //     var hits = Physics.SphereCastAll(transform.position, shoutDistance, Vector3.up, 0);
-        //     foreach (RaycastHit hit in hits)
-        //     {
-        //         var neighbour = hit.transform.GetComponent<AIController>();
-        //         if (neighbour == null) { continue; }
+        private void AggrovateNeighbourEnemies()
+        {
+            var hits = Physics.SphereCastAll(transform.position, shoutDistance, Vector3.up, 0);
+            foreach (RaycastHit hit in hits)
+            {
+                var neighbour = hit.transform.GetComponent<AIController>();
+                if (neighbour == null) { continue; }
 
-        //         neighbour.Aggrovate();
+                neighbour.Aggrovate();
 
-        //     }
-        // }
+            }
+        }
 
         void WaitingBehavior()
         {
@@ -175,13 +175,13 @@ namespace LD47.Control
         void UpdateTimers()
         {
             timeSinceLastArrived += Time.deltaTime;
-            // timeSinceLastSawPlayer += Time.deltaTime;
-            // timeSinceAggro += Time.deltaTime;
+            timeSinceLastSawPlayer += Time.deltaTime;
+            timeSinceAggro += Time.deltaTime;
         }
-
-        // public void Aggrovate()
-        // {
-        //     timeSinceAggro = 0f;
-        // }
+        public void Aggrovate()
+        {
+            timeSinceAggro = 0f;
+            print("I'm pissed now!!");
+        }
     }
 }

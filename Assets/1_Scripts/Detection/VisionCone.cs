@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
-namespace LD47.Control
+namespace LD47.Detection
 {
     public static class MaterialLoader
     {
@@ -16,18 +15,18 @@ namespace LD47.Control
         }
     }
 
-    public class VisionTest : MonoBehaviour
+    public class VisionCone : MonoBehaviour
     {
         Vector3[] vertices = new Vector3[8];
         Vector3[] frustrumWorldPoints = new Vector3[8];
         Vector2[] UV = new Vector2[8];
         int[] triangles = new int[36];
-        [SerializeField] [Range(-1f, 1f)] float viewHeight = 0.0f;
-        [SerializeField] [Range(-1f, 1f)] float viewSlide = 0.0f; //bugged
-        [SerializeField] [Range(0.5f, 5f)] float viewLength = 1.5f;
-        [SerializeField] [Range(0.1f, 2f)] float viewBackHeight = 0.25f;
-        [SerializeField] [Range(0.1f, 2f)] float viewBackWidth = 0.25f;
-        [SerializeField] [Range(0.1f, 2f)] float viewFrontHeight = 0.5f;
+        [SerializeField] [Range(-1f, 1f)] float forwardPosOffset = 0.4f;
+        [SerializeField] [Range(-1f, 1f)] float bottomPosOffset = 0.6f;        
+        [SerializeField] [Range(0.5f, 5f)] float viewLength = 1.75f;
+        [SerializeField] [Range(0.1f, 2f)] float viewBackHeight = 0.15f;
+        [SerializeField] [Range(0.1f, 2f)] float viewBackWidth = 0.15f;
+        [SerializeField] [Range(0.1f, 2f)] float viewFrontHeight = 0.18f;
         [SerializeField] [Range(0.1f, 2f)] float viewFrontWidth = 1.0f;
         Vector3 center = Vector3.zero;
         GameObject Cone;
@@ -59,15 +58,7 @@ namespace LD47.Control
             coneCollider.convex = true;
             coneCollider.isTrigger = true;
         }
-        // Update is called once per frame
-        void Update()
-        {
-            //Cone.transform.position = new Vector3(Cone.transform.parent.position.x, Cone.transform.parent.position.y + viewHeight, Cone.transform.parent.position.z + viewSlide);
-            // CreateFrustrumVertices();
-            // Cone.GetComponent<MeshFilter>().mesh.SetVertices(vertices);
-            // Quaternion rotation = Quaternion.LookRotation(gameObject.transform.forward, Vector3.up);
-            // Cone.transform.rotation = rotation;
-        }
+
         // calculates the vertices
         void CreateFrustrumVertices()
         {
@@ -76,13 +67,13 @@ namespace LD47.Control
             float halfBY = viewBackHeight / 2;
             float halfFX = viewFrontWidth / 2;
             float halfFY = viewFrontHeight / 2;
-            frustrumWorldPoints[0] = new Vector3(center.x + halfBX, center.y + halfBY, center.z);
-            frustrumWorldPoints[1] = new Vector3(center.x + halfBX, center.y - halfBY, center.z);
-            frustrumWorldPoints[2] = new Vector3(center.x - halfBX, center.y - halfBY, center.z);
-            frustrumWorldPoints[3] = new Vector3(center.x - halfBX, center.y + halfBY, center.z);
+            frustrumWorldPoints[0] = new Vector3(center.x + halfBX, center.y + halfBY, center.z + forwardPosOffset);
+            frustrumWorldPoints[1] = new Vector3(center.x + halfBX, center.y - halfBY, center.z + forwardPosOffset);
+            frustrumWorldPoints[2] = new Vector3(center.x - halfBX, center.y - halfBY, center.z + forwardPosOffset);
+            frustrumWorldPoints[3] = new Vector3(center.x - halfBX, center.y + halfBY, center.z + forwardPosOffset);
             frustrumWorldPoints[4] = new Vector3(center.x - halfFX, center.y + halfFY, center.z + viewLength);
-            frustrumWorldPoints[5] = new Vector3(center.x - halfFX, center.y - halfFY, center.z + viewLength);
-            frustrumWorldPoints[6] = new Vector3(center.x + halfFX, center.y - halfFY, center.z + viewLength);
+            frustrumWorldPoints[5] = new Vector3(center.x - halfFX, center.y - halfFY - bottomPosOffset, center.z + viewLength);
+            frustrumWorldPoints[6] = new Vector3(center.x + halfFX, center.y - halfFY - bottomPosOffset, center.z + viewLength);
             frustrumWorldPoints[7] = new Vector3(center.x + halfFX, center.y + halfFY, center.z + viewLength);
             // v = q * (v - center) + center;
             //Quaternion rotation = Quaternion.LookRotation(gameObject.transform.forward, Vector3.up);
@@ -141,16 +132,6 @@ namespace LD47.Control
         {
             float radian = angle * (Mathf.PI / 180f);
             return new Vector3(Mathf.Cos(radian), Mathf.Sin(radian));
-        }
-
-
-        //TODO move me to my own script
-        private void OnTriggerEnter(Collider other)
-        {
-            print("Something collided");
-            if (other.gameObject.tag != "Player") {return;}
-
-            print("I see you biatch!");
         }
     }
 }
