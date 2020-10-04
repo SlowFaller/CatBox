@@ -10,7 +10,7 @@ namespace LD47.Control
 
         [Header("Attacking")]
         [SerializeField] [Range(0, 5f)] float attackMovementSpeed = 4f;
-        [SerializeField] [Range(0, 10f)] float chaseDistance = 5f;
+        [SerializeField] [Range(0, 10f)] float chaseDistance = 0.5f;
         [SerializeField] [Range(0, 10f)] float suspicionTime = 5f;
         [SerializeField] [Range(0, 10f)] float aggroCooldownTime = 5f;
         [SerializeField] [Range(0, 30f)] float shoutDistance = 10f;
