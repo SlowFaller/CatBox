@@ -2,6 +2,7 @@
 
 namespace LD47.Pathing
 {
+    [SelectionBase]
     public class Waypoint : MonoBehaviour
     {
         private const string TAG = "Player";
@@ -52,6 +53,7 @@ namespace LD47.Pathing
         public void PickupWaypoint()
         {
             GetComponentInChildren<MeshRenderer>().enabled = false;
+            GetComponentInParent<DrawPaths>().DrawingPathLines(true);
             waypointFX.Stop();
             isPickedUp = true;
         }
@@ -59,6 +61,7 @@ namespace LD47.Pathing
         public void PlaceWaypoint()
         {
             GetComponentInChildren<MeshRenderer>().enabled = true;
+            GetComponentInParent<DrawPaths>().DrawingPathLines(false);
             waypointFX.Play();
             isPickedUp = false;
             posOffset = transform.position;

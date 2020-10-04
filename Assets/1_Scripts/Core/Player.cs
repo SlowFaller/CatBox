@@ -48,7 +48,6 @@ namespace LD47.Core
             }
         }
 
-
         private void PickupWaypoint()
         {
             waypointInRange.PickupWaypoint();
