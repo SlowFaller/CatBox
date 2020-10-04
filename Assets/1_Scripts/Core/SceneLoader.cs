@@ -7,32 +7,19 @@ namespace LD47.Core
 {
     public class SceneLoader : MonoBehaviour
     {
-        [SerializeField] [Range(1, 30)] float levelLoadDelay = 3f;
+        [SerializeField] [Range(0, 10)] float levelRestartDelay = 3f;
 
-        IEnumerator LoadScene(int sceneIndex)
+        public void LoadLevel(int sceneIndex)
         {
-            yield return new WaitForSeconds(levelLoadDelay);
-
             SceneManager.LoadScene(sceneIndex);
         }
 
-        IEnumerator LoadScene()
+        public void LoadLevel()
         {
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
             int nextScene = ++currentSceneIndex % SceneManager.sceneCountInBuildSettings;
 
-            yield return new WaitForSeconds(levelLoadDelay);
-
             SceneManager.LoadScene(nextScene);
-        }
-
-        IEnumerator ReloadScene()
-        {
-            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-
-            yield return new WaitForSeconds(levelLoadDelay);
-
-            SceneManager.LoadScene(currentSceneIndex);
         }
 
         public void ReloadLevel()
@@ -40,14 +27,13 @@ namespace LD47.Core
             StartCoroutine(ReloadScene());
         }
 
-        public void LoadLevel(int sceneToLoad)
+        IEnumerator ReloadScene()
         {
-            StartCoroutine(LoadScene(sceneToLoad));
-        }
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        public void LoadLevel()
-        {
-            StartCoroutine(LoadScene());
+            yield return new WaitForSeconds(levelRestartDelay);
+
+            SceneManager.LoadScene(currentSceneIndex);
         }
     }
 

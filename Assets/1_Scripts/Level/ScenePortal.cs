@@ -20,10 +20,16 @@ namespace LD47.Level
         Fader obj_fader;
         SceneLoader obj_sceneLoader;
 
-        private void Awake()
+        private void Start()
         {
             obj_fader = FindObjectOfType<Fader>();
             obj_sceneLoader = FindObjectOfType<SceneLoader>();
+        }
+
+        void OnDrawGizmos()
+        {
+            Gizmos.color = new Color(0, 0, 1,.1f);
+            Gizmos.DrawCube(transform.position,GetComponent<BoxCollider>().size);
         }
 
         void OnTriggerEnter(Collider other)
