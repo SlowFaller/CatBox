@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 namespace LD47.Control
 {
-     public static class MaterialLoader
+    public static class MaterialLoader
     {
         public static void AddResource(this ICollection<Material> materials, string resource)
         {
@@ -16,18 +17,17 @@ namespace LD47.Control
     }
 
     public class VisionTest : MonoBehaviour
-    {    
+    {
         Vector3[] vertices = new Vector3[8];
         Vector3[] frustrumWorldPoints = new Vector3[8];
         Vector2[] UV = new Vector2[8];
         int[] triangles = new int[36];
-
         [SerializeField] [Range(-1f, 1f)] float viewHeight = 0.0f;
         [SerializeField] [Range(-1f, 1f)] float viewSlide = 0.0f; //bugged
         [SerializeField] [Range(0.5f, 5f)] float viewLength = 1.5f;
-        [SerializeField] [Range(0.1f, 2f)]float viewBackHeight = 0.25f;
+        [SerializeField] [Range(0.1f, 2f)] float viewBackHeight = 0.25f;
         [SerializeField] [Range(0.1f, 2f)] float viewBackWidth = 0.25f;
-        [SerializeField] [Range(0.1f, 2f)]float viewFrontHeight = 0.5f;
+        [SerializeField] [Range(0.1f, 2f)] float viewFrontHeight = 0.5f;
         [SerializeField] [Range(0.1f, 2f)] float viewFrontWidth = 1.0f;
         Vector3 center = Vector3.zero;
         GameObject Cone;
@@ -37,7 +37,6 @@ namespace LD47.Control
             // creat "cone" of vision and set transform to the Guardog
             Cone = new GameObject("Cone");
             Cone.transform.SetParent(gameObject.transform, false);
-
             // add all mesh components needed
             Mesh mesh = new Mesh();
             mesh.name = "Cone";
@@ -53,23 +52,22 @@ namespace LD47.Control
             mesh.SetVertices(vertices);
             mesh.uv = UV;
             mesh.triangles = triangles;
-
             Cone.AddComponent<MeshCollider>();
-            Cone.GetComponent<MeshCollider>().sharedMesh = mesh;
-            Cone.GetComponent<MeshCollider>().enabled = true;
-            Cone.GetComponent<MeshCollider>().isTrigger = true;
+            MeshCollider coneCollider = Cone.GetComponent<MeshCollider>();
+            coneCollider.sharedMesh = mesh;
+            coneCollider.enabled = true;
+            coneCollider.convex = true;
+            coneCollider.isTrigger = true;
         }
-
         // Update is called once per frame
         void Update()
         {
-            Cone.transform.position = new Vector3(Cone.transform.parent.position.x, Cone.transform.parent.position.y + viewHeight, Cone.transform.parent.position.z + viewSlide);
+            //Cone.transform.position = new Vector3(Cone.transform.parent.position.x, Cone.transform.parent.position.y + viewHeight, Cone.transform.parent.position.z + viewSlide);
             // CreateFrustrumVertices();
             // Cone.GetComponent<MeshFilter>().mesh.SetVertices(vertices);
             // Quaternion rotation = Quaternion.LookRotation(gameObject.transform.forward, Vector3.up);
             // Cone.transform.rotation = rotation;
         }
-
         // calculates the vertices
         void CreateFrustrumVertices()
         {
@@ -82,21 +80,18 @@ namespace LD47.Control
             frustrumWorldPoints[1] = new Vector3(center.x + halfBX, center.y - halfBY, center.z);
             frustrumWorldPoints[2] = new Vector3(center.x - halfBX, center.y - halfBY, center.z);
             frustrumWorldPoints[3] = new Vector3(center.x - halfBX, center.y + halfBY, center.z);
-
             frustrumWorldPoints[4] = new Vector3(center.x - halfFX, center.y + halfFY, center.z + viewLength);
             frustrumWorldPoints[5] = new Vector3(center.x - halfFX, center.y - halfFY, center.z + viewLength);
             frustrumWorldPoints[6] = new Vector3(center.x + halfFX, center.y - halfFY, center.z + viewLength);
             frustrumWorldPoints[7] = new Vector3(center.x + halfFX, center.y + halfFY, center.z + viewLength);
-
             // v = q * (v - center) + center;
             //Quaternion rotation = Quaternion.LookRotation(gameObject.transform.forward, Vector3.up);
-            for(int i = 0; i < 8; i++)
+            for (int i = 0; i < 8; i++)
             {
                 //vertices[i] = rotation * (frustrumWorldPoints[i] - transform.position) + transform.position;
                 vertices[i] = Cone.transform.InverseTransformPoint(frustrumWorldPoints[i]);
             }
         }
-
         void CalculateTriangles()
         {
             // backplane face
@@ -142,11 +137,20 @@ namespace LD47.Control
             triangles[34] = 6;
             triangles[35] = 7;
         }
-
         Vector3 ConvertAngleToVector(float angle)
         {
-            float radian = angle * (Mathf.PI / 180f);    
+            float radian = angle * (Mathf.PI / 180f);
             return new Vector3(Mathf.Cos(radian), Mathf.Sin(radian));
+        }
+
+
+        //TODO move me to my own script
+        private void OnTriggerEnter(Collider other)
+        {
+            print("Something collided");
+            if (other.gameObject.tag != "Player") {return;}
+
+            print("I see you biatch!");
         }
     }
 }
