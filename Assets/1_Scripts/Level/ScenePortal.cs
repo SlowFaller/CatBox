@@ -62,7 +62,7 @@ namespace LD47.Level
         IEnumerator EnterScene()
         {
             yield return new WaitForSeconds(fadeWaitTime);
-            obj_fader.FadeToAlpha(0, fadeInTime);
+            yield return obj_fader.FadeToAlpha(0, fadeInTime);
             PlayerControlEnabled(true);
         }
 
