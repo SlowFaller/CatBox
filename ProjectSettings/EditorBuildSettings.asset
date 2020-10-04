@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/0_Scenes/jg_sandbox.unity
     guid: 4248fc4b1cdca714bbcd55cc9cb9d5b8
+  - enabled: 1
+    path: Assets/0_Scenes/pathing_demo.unity
+    guid: f6ad826f083dee148a44dc6c7daffd03
   m_configObjects: {}

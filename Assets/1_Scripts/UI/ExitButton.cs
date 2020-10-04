@@ -1,22 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class ExitButton : MonoBehaviour
+namespace LD47.UI
 {
-    // Start is called before the first frame update
-    void Start()
+    public class ExitButton : MonoBehaviour
     {
-        
-    }
+        // Start is called before the first frame update
+        void Start()
+        {
+            
+        }
 
-    // quits the game
-    public void OnClick()
-    {
-        Debug.Log("Quitting the game");
-        Application.Quit();
-    }
+        // quits the game
+        public void OnClick()
+        {
+            Debug.Log("Quitting the game");
+            Application.Quit();
+        }
 
-    // Update is called once per frame
+        // Update is called once per frame
+    }
 }
