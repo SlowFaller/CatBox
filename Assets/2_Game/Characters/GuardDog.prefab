@@ -66,8 +66,8 @@ MonoBehaviour:
   aggroCooldownTime: 5
   shoutDistance: 10
   patrolPath: {fileID: 0}
-  patrolMovementSpeed: 2.5
-  patrolDwellTime: 3
+  patrolMovementSpeed: 3.29
+  patrolDwellTime: 1.98
   waypointTolerance: 1
 --- !u!195 &1501268445757410949
 NavMeshAgent:
