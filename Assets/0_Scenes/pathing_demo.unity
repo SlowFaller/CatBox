@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 3876d0e183013044aab5adba683217d7, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -554,6 +554,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6473925445468185340}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &954055330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1645730992, guid: 53fa54115e244eb43a1420c2cbb66561,
+    type: 3}
+  m_PrefabInstance: {fileID: 8948162023382834391}
+  m_PrefabAsset: {fileID: 0}
+--- !u!45 &954055334
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954055330}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 3876d0e183013044aab5adba683217d7, type: 2}
 --- !u!1 &1767204557
 GameObject:
   m_ObjectHideFlags: 0
@@ -1216,10 +1231,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 259139596, guid: 53fa54115e244eb43a1420c2cbb66561, type: 3}
+      propertyPath: m_Name
+      value: MicBoom
+      objectReference: {fileID: 0}
     - target: {fileID: 893673928, guid: 53fa54115e244eb43a1420c2cbb66561, type: 3}
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 4117389549645983465}
+    - target: {fileID: 1645730994, guid: 53fa54115e244eb43a1420c2cbb66561, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 1645730994, guid: 53fa54115e244eb43a1420c2cbb66561, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 1645730994, guid: 53fa54115e244eb43a1420c2cbb66561, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.21960786
+      objectReference: {fileID: 0}
     - target: {fileID: 1361811725790085196, guid: 53fa54115e244eb43a1420c2cbb66561,
         type: 3}
       propertyPath: m_LocalPosition.x
