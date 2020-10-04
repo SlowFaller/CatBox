@@ -1,22 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class StartButton : MonoBehaviour
+namespace LD47.UI
 {
-
-    // Start is called before the first frame update
-    void Start()
+    public class StartButton : MonoBehaviour
     {
-        
-    }
 
-    // load's Jake's scene
-    public void OnClick()
-    {
-        Debug.Log("Starting game");
-        SceneManager.LoadScene(1);
+        // Start is called before the first frame update
+        void Start()
+        {
+            
+        }
+
+        // load's Jake's scene
+        public void OnClick()
+        {
+            Debug.Log("Starting game");
+            SceneManager.LoadScene(2);
+        }
     }
 }
