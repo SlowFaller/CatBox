@@ -22,7 +22,6 @@ namespace LD47.Core
 
             playerCanPickup = true;
             waypointInRange = other.GetComponent<Waypoint>();
-            print("Player Can Pickup " + waypointInRange);
         }
 
         private void OnTriggerExit(Collider other)
@@ -32,7 +31,6 @@ namespace LD47.Core
 
             playerCanPickup = false;
             waypointInRange = null;
-            print("Player Can't Pickup " + waypointInRange);
         }
 
         public void InteractWithWaypoint()
@@ -47,7 +45,6 @@ namespace LD47.Core
                 PickupWaypoint();
             }
         }
-
 
         private void PickupWaypoint()
         {
