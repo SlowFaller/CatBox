@@ -32,17 +32,20 @@ namespace LD47.Control
         {
             Cone = new GameObject("Cone");
             BackPlane = GameObject.CreatePrimitive(PrimitiveType.Quad);
+
             //forward = transform.forward;
             FrustrumPoint = GameObject.Find("FrustrumCenter");
             FrustrumTR = GameObject.Find("FrustrumTopRight");
             FrustrumBR = GameObject.Find("FrustrumBotRight");
             FrustrumBL = GameObject.Find("FrustrumBotLeft");
             FrustrumTL = GameObject.Find("FrustrumTopLeft");
+
             Mesh mesh = new Mesh();
             Cone.AddComponent<MeshFilter>();
             Cone.AddComponent<MeshRenderer>();
             Cone.AddComponent<MeshCollider>();
             Cone.GetComponent<MeshFilter>().mesh = mesh;
+
             Cone.transform.position = transform.position;
             BackPlane.transform.position = transform.position;
             CreateFrustrumVertices();
@@ -58,7 +61,7 @@ namespace LD47.Control
             CreateFrustrumVertices();
             Cone.GetComponent<MeshFilter>().mesh.vertices = vertices;
             FrustrumPoint.transform.position = center;
-            FrustrumTR.transform.position = transform.TransformPoint(vertices[0]);
+            FrustrumTR.transform.position = frustrumWorldPoints[0];
             FrustrumBR.transform.position = frustrumWorldPoints[1];
             FrustrumBL.transform.position = frustrumWorldPoints[2];
             FrustrumTL.transform.position = frustrumWorldPoints[3];
