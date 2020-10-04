@@ -56,6 +56,8 @@ namespace LD47.Control
 
             Cone.AddComponent<MeshCollider>();
             Cone.GetComponent<MeshCollider>().sharedMesh = mesh;
+            Cone.GetComponent<MeshCollider>().enabled = true;
+            Cone.GetComponent<MeshCollider>().isTrigger = true;
         }
 
         // Update is called once per frame
