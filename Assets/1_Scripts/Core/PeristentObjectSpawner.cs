@@ -23,5 +23,7 @@ namespace LD47.Core
             GameObject peristentObject = Instantiate(persistentObjectPrefab);
             DontDestroyOnLoad(peristentObject);
         }
+
+        
     }
 }

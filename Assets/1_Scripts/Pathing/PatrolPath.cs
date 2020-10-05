@@ -1,11 +1,18 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace LD47.Pathing
 {
     public class PatrolPath : MonoBehaviour
     {
         [SerializeField] List<Transform> waypoints = new List<Transform>();
+
+        [SerializeField] WaypointEvent waypointDisrupted;
+        [SerializeField] UnityEvent waypointRestored;
+
+        [System.Serializable]
+        public class WaypointEvent : UnityEvent<int> { }
 
         private void Awake()
         {
@@ -46,6 +53,18 @@ namespace LD47.Pathing
                     waypoints.Add(child);
                 }
             }
+        }
+
+        public void WaypointDisrupted(int waypointID, bool isDisrupted)
+        {  
+            if (isDisrupted)
+            {
+                waypointDisrupted.Invoke(waypointID);
+            }
+            else
+            {
+                waypointRestored.Invoke();
+            }     
         }
 
     }
