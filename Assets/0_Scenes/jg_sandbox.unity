@@ -2140,6 +2140,151 @@ PrefabInstance:
       propertyPath: m_Name
       value: PatrolPath (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 725415259}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AlertGuardDog
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1695536861}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetFadeFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1803940437}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetFadeFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1803940437}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1695536861}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetFadeFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetFadeFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1698231835913246964, guid: 9cad8e3da2ab7da4296227f7943a8a44,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2440,6 +2585,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b3af8042f9f4ca4da8fb2513e0128e3, type: 3}
+--- !u!114 &725415259 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1501268445757410948, guid: 08d5e0e784b6a9b4bba8bd438871d91e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1934199191}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10c67a15ac7d22641986f7dfd7dda7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &727965569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3247,6 +3404,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c771339e15d74684181a908d21a03722, type: 3}
+--- !u!114 &990296116 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1501268445757410948, guid: 08d5e0e784b6a9b4bba8bd438871d91e,
+    type: 3}
+  m_PrefabInstance: {fileID: 544035692}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10c67a15ac7d22641986f7dfd7dda7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &991985222 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2167407003504807987, guid: 3d9b810d043b3d54489aad87b1a4db2e,
@@ -4557,6 +4726,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85e4118480acc0244b70620d67fdde56, type: 3}
+--- !u!114 &1488987884 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1501268445757410948, guid: 08d5e0e784b6a9b4bba8bd438871d91e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1501268447618941601}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10c67a15ac7d22641986f7dfd7dda7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1505435648
 GameObject:
   m_ObjectHideFlags: 0
@@ -4957,6 +5138,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1189527678}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1695536861 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4457067071974736107, guid: 53fa54115e244eb43a1420c2cbb66561,
+    type: 3}
+  m_PrefabInstance: {fileID: 8948162023382834391}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e47ca0546039fc645a121e94759b75be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1712672450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5263,6 +5456,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1169059865}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1803940437 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1158200087703904523, guid: 53fa54115e244eb43a1420c2cbb66561,
+    type: 3}
+  m_PrefabInstance: {fileID: 8948162023382834391}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28969f9de64db3240844552a1b7a6e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1811302548 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8800224900219518923, guid: 4d2b511fafb71794cbbf6869ee88cefd,
@@ -6064,6 +6269,146 @@ PrefabInstance:
       propertyPath: m_Name
       value: PatrolPath (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 990296116}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AlertGuardDog
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1695536861}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetFadeFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1803940437}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetFadeFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1803940437}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetFadeFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1695536861}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetFadeFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1698231835913246964, guid: 9cad8e3da2ab7da4296227f7943a8a44,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6453,6 +6798,146 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PatrolPath
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1488987884}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AlertGuardDog
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1695536861}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetFadeFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1803940437}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetFadeFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointDisrupted.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1803940437}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetFadeFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1695536861}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetFadeFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698231835913246963, guid: 9cad8e3da2ab7da4296227f7943a8a44,
+        type: 3}
+      propertyPath: waypointRestored.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1698231835913246964, guid: 9cad8e3da2ab7da4296227f7943a8a44,
         type: 3}

@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 581463659519111799}
+  - component: {fileID: 7479990276787690119}
   - component: {fileID: 3708708272646847048}
   - component: {fileID: -587344330408363921}
-  - component: {fileID: 7479990276787690119}
   - component: {fileID: 66953616721470603}
   m_Layer: 0
   m_Name: Music Player
@@ -34,6 +34,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7479990276787690119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7217444081748895350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1281616dfd0aa146b6ced86dcf2d04c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &3708708272646847048
 AudioSource:
   m_ObjectHideFlags: 0
@@ -46,7 +58,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c0e03aef7dcf77843b231ba91a243bb7, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.557
+  m_Volume: 0.476
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -155,18 +167,6 @@ AudioLowPassFilter:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7479990276787690119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7217444081748895350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1281616dfd0aa146b6ced86dcf2d04c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!168 &66953616721470603
 AudioEchoFilter:
   m_ObjectHideFlags: 0
