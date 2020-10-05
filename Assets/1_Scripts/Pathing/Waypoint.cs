@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace LD47.Pathing
 {
@@ -13,6 +14,12 @@ namespace LD47.Pathing
         [SerializeField] float degreesPerSecond = 15.0f;
         [SerializeField] float amplitude = 0.5f;
         [SerializeField] float frequency = 1f;
+        [SerializeField] Material idleMaterial;
+        [SerializeField] Material pickupMaterial;
+        [SerializeField] Material idleTextMaterial;
+        [SerializeField] Material pickupTextMaterial;
+        [SerializeField] GameObject popupText;
+
 
         Vector3 posOffset = new Vector3();
         Vector3 tempPos = new Vector3();
@@ -22,6 +29,8 @@ namespace LD47.Pathing
         {
             obj_player = GameObject.FindWithTag(TAG);
             posOffset = transform.position;
+            WaypointColor(idleMaterial);
+
         }
 
         void Update()
@@ -54,6 +63,7 @@ namespace LD47.Pathing
         {
             GetComponentInChildren<MeshRenderer>().enabled = false;
             GetComponentInParent<DrawPaths>().DrawingPathLines(true);
+            popupText.GetComponentInChildren<Text>().material = pickupTextMaterial;
             waypointFX.Stop();
             isPickedUp = true;
             GetComponentInParent<PatrolPath>().WaypointDisrupted(gameObject.GetInstanceID(),true);
@@ -64,11 +74,31 @@ namespace LD47.Pathing
         {
             GetComponentInChildren<MeshRenderer>().enabled = true;
             GetComponentInParent<DrawPaths>().DrawingPathLines(false);
+            popupText.GetComponentInChildren<Text>().material = idleTextMaterial;
             waypointFX.Play();
             isPickedUp = false;
             posOffset = transform.position;
             GetComponentInParent<PatrolPath>().WaypointDisrupted(gameObject.GetInstanceID(), false);
 
+        }
+        void WaypointColor(Material material)
+        {
+            waypointFX.GetComponent<ParticleSystemRenderer>().material = material;
+            GetComponentInChildren<MeshRenderer>().material = material;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.tag != "Player") {return;} 
+            WaypointColor(pickupMaterial);
+            popupText.SetActive(true);           
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.tag != "Player") { return; }
+            WaypointColor(idleMaterial);
+            popupText.SetActive(false);
         }
     }
 }

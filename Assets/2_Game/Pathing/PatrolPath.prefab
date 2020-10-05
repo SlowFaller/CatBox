@@ -48,6 +48,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints: []
+  waypointDisrupted:
+    m_PersistentCalls:
+      m_Calls: []
+  waypointRestored:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2099019176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,7 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 775edac7f827c544c8682b7636fc08da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineMat: {fileID: 2100000, guid: f025c5db938b349a8b450e845b67e20a, type: 2}
+  lineMat: {fileID: 2100000, guid: 42caffe1132386f4daa037a9663088b9, type: 2}
   radius: 0.02
   points:
   - {fileID: 6098246555515202827}

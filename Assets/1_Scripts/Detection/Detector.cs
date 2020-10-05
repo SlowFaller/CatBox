@@ -10,6 +10,7 @@ namespace LD47.Detection
         Light cmp_pointLight;
         bool alert = false;
         [SerializeField] UnityEvent caught;
+        bool caughtPlayer = false;
 
         void Awake()
         {
@@ -33,6 +34,7 @@ namespace LD47.Detection
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.tag != "Player") { return; }
+            if (caughtPlayer) { return; }
             
             alert = true;
             caught.Invoke();

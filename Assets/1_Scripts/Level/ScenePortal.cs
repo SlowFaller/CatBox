@@ -70,5 +70,13 @@ namespace LD47.Level
         {
             GameObject.FindWithTag(TAG).GetComponent<PlayerController>().enabled = isEnabled;
         }
+        
+        public void ReloadLevel()
+        {
+            sceneToLoad = 1;
+            StartCoroutine(Transition());
+        }
+
+        
     }
 }

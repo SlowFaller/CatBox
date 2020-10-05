@@ -22,16 +22,6 @@ namespace LD47.Control
             if (Input.GetKeyDown(KeyCode.P))
                 {
                     pause = !pause;
-                    if(Time.timeScale > 0)
-                    {
-                        Time.timeScale = 0;
-                        //obj_fader.FadeToAlpha(0.7f, 0.5f);
-                    }
-                    else
-                    {
-                        Time.timeScale = 1.0f;
-                        //obj_fader.FadeToAlpha(0.0f, 0.5f);
-                    }
                 }
 
             // Handle user input
@@ -57,6 +47,11 @@ namespace LD47.Control
         {
             Animator cmp_animator = GetComponentInChildren<Animator>();
             cmp_animator.SetFloat("forwardSpeed", GetComponent<CharacterMovement>().forwardSpeed);
+        }
+
+        public void PauseMovement()
+        {
+            pause = !pause;
         }
     }
 }

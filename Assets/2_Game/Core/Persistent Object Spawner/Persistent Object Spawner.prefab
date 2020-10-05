@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1213440680725205636}
   - component: {fileID: 1213440680725205755}
   - component: {fileID: 9001430092543119000}
+  - component: {fileID: 6443933690332892496}
   m_Layer: 0
   m_Name: Persistent Object Spawner
   m_TagString: Untagged
@@ -64,3 +65,15 @@ MonoBehaviour:
   minDelay: 0
   fadeTime: 1
   fading: 0
+--- !u!114 &6443933690332892496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213440680725205754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 673f47ec28913354185f6d41edda559f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
