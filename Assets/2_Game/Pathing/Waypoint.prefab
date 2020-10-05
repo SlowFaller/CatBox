@@ -47,6 +47,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25ba8808e2f1beb489743a53d18bf35b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypointDisrupted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1501268445757410948, guid: 08d5e0e784b6a9b4bba8bd438871d91e,
+          type: 3}
+        m_MethodName: AlertGuardDog
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   isPickedUp: 0
   waypointFX: {fileID: 2692141638121946410}
   degreesPerSecond: 70

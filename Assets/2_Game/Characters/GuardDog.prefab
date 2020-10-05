@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 59431884238393170}
   - component: {fileID: 1501268445757410951}
   - component: {fileID: 1501268445757410948}
+  - component: {fileID: 3783298259279135880}
+  - component: {fileID: 2740687289417575853}
   m_Layer: 0
   m_Name: GuardDog
   m_TagString: Untagged
@@ -33,8 +35,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1501268447706685020}
-  - {fileID: 23405973148875854}
   - {fileID: 8596692799382377546}
+  - {fileID: 9133222895602924533}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -113,15 +115,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10c67a15ac7d22641986f7dfd7dda7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackMovementSpeed: 4
-  chaseDistance: 1
-  suspicionTime: 5
-  aggroCooldownTime: 5
-  shoutDistance: 10
+  suspicionMovementSpeed: 5
+  suspicionDwellTime: 10
   patrolPath: {fileID: 0}
   patrolMovementSpeed: 3.29
   patrolDwellTime: 1.98
   waypointTolerance: 1
+  isSuspicious: 0
+--- !u!114 &3783298259279135880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501268445757410947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefe968be1fabb34f812f1fe938d31fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forwardPosOffset: 0.4
+  bottomPosOffset: 0.6
+  viewLength: 1.75
+  viewBackHeight: 0.15
+  viewBackWidth: 0.15
+  viewFrontHeight: 0.18
+  viewFrontWidth: 1
+--- !u!114 &2740687289417575853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501268445757410947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc2dd902e9d088e4fb3f4b9b79c01a3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3086454220904461665
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +172,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8596692799382377546
 Transform:
   m_ObjectHideFlags: 0
@@ -154,7 +185,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1501268445757410946}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5063046650657264462
 MonoBehaviour:
@@ -370,10 +401,8 @@ MonoBehaviour:
   m_Mesh: {fileID: 0}
   m_IsSelectable: 1
   m_SelectedFaces: 
-  m_SelectedEdges:
-  - a: 1
-    b: 3
-  m_SelectedVertices: 0100000003000000
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!23 &2182632322916198671
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -435,7 +464,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!1 &3548982657606203675
+--- !u!1 &7118331852214942547
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -443,8 +472,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 23405973148875854}
-  - component: {fileID: 9150089737723290502}
+  - component: {fileID: 9133222895602924533}
+  - component: {fileID: 4875184009333529859}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -452,34 +481,34 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &23405973148875854
+--- !u!4 &9133222895602924533
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3548982657606203675}
+  m_GameObject: {fileID: 7118331852214942547}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.839}
+  m_LocalPosition: {x: 0, y: -0.25, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1501268445757410946}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!108 &9150089737723290502
+--- !u!108 &4875184009333529859
 Light:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3548982657606203675}
+  m_GameObject: {fileID: 7118331852214942547}
   m_Enabled: 1
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.105882354, b: 0.07058824, a: 1}
-  m_Intensity: 5
-  m_Range: 10
+  m_Color: {r: 1, g: 0.10588236, b: 0.07058824, a: 1}
+  m_Intensity: 6
+  m_Range: 3.7
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
