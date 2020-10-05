@@ -7,7 +7,6 @@ namespace LD47.Control
     public class AIController : MonoBehaviour
     {
         private const string TAG = "Player";
-
         [Header("Suspicion")]
         [SerializeField] [Range(0, 5f)] float suspicionMovementSpeed = 4f;
         [SerializeField] [Range(0, 10f)] float suspicionDwellTime = 5f;
@@ -19,6 +18,7 @@ namespace LD47.Control
 
         GameObject obj_player;
         Mover cmp_mover;
+        Scanning cmp_scanner;
 
         int currentWaypointIndex = 0;
         int susWaypointObjID = 0;
@@ -30,6 +30,7 @@ namespace LD47.Control
         {
             obj_player = GameObject.FindWithTag(TAG);
             cmp_mover = GetComponent<Mover>();
+            cmp_scanner = GetComponent<Scanning>();
         }
 
         void Start()
@@ -39,6 +40,8 @@ namespace LD47.Control
 
         void Update()
         {
+            
+
             if (isSuspicious)
             {
 
@@ -80,7 +83,11 @@ namespace LD47.Control
             }
             else
             {
-                DwellBehavior();
+                if(timeSinceLastArrived < Mathf.Epsilon)
+                {
+                    DwellBehavior();
+                }
+                
             }
         }
 
@@ -90,9 +97,9 @@ namespace LD47.Control
             return patrolPath.GetWaypointID(currentWaypointIndex) == susWaypointObjID;
         }
 
-        private void DwellBehavior()
+        void DwellBehavior()
         {
-
+            cmp_scanner.SetScanTimeAndStartSweep(5.0f);
         }
 
         bool AtWaypoint()

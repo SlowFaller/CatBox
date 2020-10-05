@@ -18,7 +18,7 @@ namespace LD47.UI
         public void OnClick()
         {
             Debug.Log("Starting game");
-            obj_sceneLoader.LoadLevel();
+            obj_sceneLoader.LoadLevel(1);
         }
     }
 }
