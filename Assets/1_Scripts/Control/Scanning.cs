@@ -8,7 +8,7 @@ namespace LD47.Control
     {
         float scanTimer = 0.0f;
         float scanDuration = 0.0f;
-        bool isScanning = false;
+        [SerializeField] bool isScanning = false;
         float scanRemainder = 0.0f;
         float scanSpeed = 1.0f;
         bool startLeft = false;
@@ -19,42 +19,15 @@ namespace LD47.Control
         float leftSweep = 0.0f;
         float rightSweep = 0.0f;
 
-
-        // Start is called before the first frame update
-        void Start()
-        {
-            
-        }
-
         // Update is called once per frame
         void Update()
         {
-            // if(scanTimer < scanDuration)
-            // {
-            //     scanTimer += Time.deltaTime;
-            // }
-            // else
-            // {
-            //     scanTimer = scanDuration;
-            //     stopScanning = true;
-            // }
-
             // math shit (from Unity docs)
             if(isScanning)
             {
                 scanTimer += Time.deltaTime;
-                float scanSin = Mathf.Sin(scanTimer);
 
-                // Increase animation time.
-                float scanDelta = scanSpeed * scanSin;
-
-                Scan(scanDelta);
-
-                // Reset the animation time if it is greater than the planned time.
-                // if (scanDelta > Mathf.PI * 2.0f)
-                // {
-                //     scanTimer = 0.0f;
-                // }
+                Scan();
 
                 // Reset the animation time if it is greater than the planned time.
                 if (scanTimer > scanDuration)
@@ -80,7 +53,7 @@ namespace LD47.Control
             
         }
 
-        public void SetScanTimeAndStartSweep(float scanTime = 3.0f, float speed = 1.0f)
+        public void SetScanTimeAndStartSweep(float scanTime = 3.0f)
         {
             scanDuration = scanTime;
             isScanning = true;
@@ -104,39 +77,61 @@ namespace LD47.Control
             startLeft = !startLeft;
         }
 
-        void Scan(float delta)
+        void Scan()
         {
-            // recalculate remainder
-            scanRemainder -= delta;
-
-            if(scanRemainder <= 0.0f)
-            {
-                toggleDirection();
-                if(startLeft)
-                {
-                    scanRemainder = leftSweep;
-                }
-                else
-                {
-                    scanRemainder = rightSweep;
-                }
-            }
-
             if(startLeft)
             {
-                //float rotateAmt = Mathf.Clamp(delta, minDegreesSweep, maxDegreesSweep);
-                //transform.position = new Vector3(0.0f, rotateAmt, 0.0f);
+                // get next rotational slice for this frame
+                float delta = Time.deltaTime * leftSweep;
+                float bobAmt = Mathf.Sin(scanTimer) * 0.5f; //0.5f to slow it down a bit
+
+                //transform.position = new Vector3(transform.position.x, bobAmt, transform.position.z);
                 transform.Rotate(0.0f, delta, 0.0f, Space.Self);
 
+                // recalculate remainder
+                scanRemainder -= delta;
+                if(scanRemainder <= 0.0f)
+                {
+                    toggleDirection();
+                    if(startLeft)
+                    {
+                        scanRemainder = leftSweep;
+                    }
+                    else
+                    {
+                        scanRemainder = rightSweep;
+                    }
+                }
+
                 // check for collision with wall here
+                
             }
             else
             {
-                //float rotateAmt = Mathf.Clamp(delta, minDegreesSweep, maxDegreesSweep);
-                //transform.position = new Vector3(0.0f, rotateAmt, 0.0f);
+                // get next rotational slice for this frame
+                float delta = Time.deltaTime * rightSweep;
+                float bobAmt = Mathf.Sin(scanTimer) * 0.5f; //0.5f to slow it down a bit
+
+                //transform.position = new Vector3(transform.position.x, bobAmt, transform.position.z);
                 transform.Rotate(0.0f, -delta, 0.0f, Space.Self);
 
+                // recalculate remainder
+                scanRemainder -= delta;
+                if(scanRemainder <= 0.0f)
+                {
+                    toggleDirection();
+                    if(startLeft)
+                    {
+                        scanRemainder = leftSweep;
+                    }
+                    else
+                    {
+                        scanRemainder = rightSweep;
+                    }
+                }
+
                 // check for collision with wall here
+
             }
         }
     }

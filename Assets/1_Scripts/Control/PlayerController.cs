@@ -2,18 +2,37 @@
 using ECM.Controllers;
 using UnityEngine;
 using LD47.Core;
+using LD47.UI;
 
 namespace LD47.Control
 {
     public class PlayerController : BaseCharacterController
     {
+        Fader obj_fader;
+
+        void start()
+        {
+            obj_fader = FindObjectOfType<Fader>();
+        }
         protected override void HandleInput()
         {
             // Toggle pause / resume.
             // By default, will restore character's velocity on resume (eg: restoreVelocityOnResume = true)
 
             if (Input.GetKeyDown(KeyCode.P))
-                pause = !pause;
+                {
+                    pause = !pause;
+                    if(Time.timeScale > 0)
+                    {
+                        Time.timeScale = 0;
+                        //obj_fader.FadeToAlpha(0.7f, 0.5f);
+                    }
+                    else
+                    {
+                        Time.timeScale = 1.0f;
+                        //obj_fader.FadeToAlpha(0.0f, 0.5f);
+                    }
+                }
 
             // Handle user input
 

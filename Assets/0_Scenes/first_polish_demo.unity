@@ -4773,8 +4773,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fefe968be1fabb34f812f1fe938d31fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewHeight: 0.006
-  viewSlide: 0.508
+  forwardPosOffset: 0.4
+  bottomPosOffset: 0.6
   viewLength: 1.5
   viewBackHeight: 0.25
   viewBackWidth: 0.25
