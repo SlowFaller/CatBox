@@ -1,19 +1,15 @@
 ﻿using UnityEngine;
-using LD47.Core;
 using LD47.Pathing;
+using LD47.Detection;
 
 namespace LD47.Control
 {
     public class AIController : MonoBehaviour
     {
         private const string TAG = "Player";
-
-        [Header("Attacking")]
-        [SerializeField] [Range(0, 5f)] float attackMovementSpeed = 4f;
-        [SerializeField] [Range(0, 10f)] float chaseDistance = 0.5f;
-        [SerializeField] [Range(0, 10f)] float suspicionTime = 5f;
-        [SerializeField] [Range(0, 10f)] float aggroCooldownTime = 5f;
-        [SerializeField] [Range(0, 30f)] float shoutDistance = 10f;
+        [Header("Suspicion")]
+        [SerializeField] [Range(0, 5f)] float suspicionMovementSpeed = 4f;
+        [SerializeField] [Range(0, 10f)] float suspicionDwellTime = 5f;
         [Header("Patrolling")]
         [SerializeField] PatrolPath patrolPath;
         [SerializeField] [Range(0, 5f)] float patrolMovementSpeed = 2.5f;
@@ -21,26 +17,18 @@ namespace LD47.Control
         [SerializeField] [Range(0, 2f)] float waypointTolerance = 1f;
 
         GameObject obj_player;
-        //Fighter cmp_fighter;
-        // Health cmp_health;
         Mover cmp_mover;
 
-        int currentWaypointIndex = 0; 
+        int currentWaypointIndex = 0;
+        int susWaypointObjID = 0;
         float timeSinceLastArrived = Mathf.Infinity;
         Vector3 guardPosition;
-        float timeSinceLastSawPlayer = Mathf.Infinity;
-        float timeSinceAggro = Mathf.Infinity;
-        
+        [SerializeField] bool isSuspicious = false;
 
         void Awake()
         {
             obj_player = GameObject.FindWithTag(TAG);
             cmp_mover = GetComponent<Mover>();
-            // cmp_fighter = GetComponent<Fighter>();
-            // cmp_health = GetComponent<Health>();
-            
-
-            
         }
 
         void Start()
@@ -48,25 +36,17 @@ namespace LD47.Control
             transform.position = patrolPath.GetWaypointPosition(0);
         }
 
-
         void Update()
         {
-            // if (cmp_health.IsDead()) { return; }
+            if (isSuspicious)
+            {
 
-            if (IsEnemyActivated())
-            {
-                AttackBehavior();
-            }
-            else if (IsSuspicious())
-            {
-                WaitingBehavior();
+                PatrolBehavior(suspicionMovementSpeed, suspicionDwellTime);
             }
             else
             {
-                PatrolBehavior();
+                PatrolBehavior(patrolMovementSpeed, patrolDwellTime);
             }
-
-            PatrolBehavior();
 
             UpdateTimers();
         }
@@ -76,71 +56,41 @@ namespace LD47.Control
             return transform.position;
         }
 
-        bool InAttackRange()
-        {
-            float distanceFromPlayer = Vector3.Distance(obj_player.transform.position, transform.position);
-
-            return (distanceFromPlayer < chaseDistance);
-        }
-
-        bool IsEnemyActivated()
-        {
-            return IsAggro() || (InAttackRange());// && cmp_fighter.CanAttack(obj_player));
-        }
-
-        bool IsAggro()
-        {
-            return timeSinceAggro < aggroCooldownTime;
-        }
-
-        bool IsSuspicious()
-        {
-            return timeSinceLastSawPlayer < suspicionTime;
-        }
-
-        void AttackBehavior()
-        {
-            timeSinceLastSawPlayer = 0;
-            AggrovateNeighbourEnemies();
-            cmp_mover.SetMoveSpeed(attackMovementSpeed);
-            //cmp_fighter.Attack(obj_player);
-        }
-
-        private void AggrovateNeighbourEnemies()
-        {
-            var hits = Physics.SphereCastAll(transform.position, shoutDistance, Vector3.up, 0);
-            foreach (RaycastHit hit in hits)
-            {
-                var neighbour = hit.transform.GetComponent<AIController>();
-                if (neighbour == null) { continue; }
-
-                neighbour.Aggrovate();
-
-            }
-        }
-
-        void WaitingBehavior()
-        {
-            GetComponent<ActionScheduler>().CancelCurrentAction();
-        }
-
-        void PatrolBehavior()
+        void PatrolBehavior(float movementSpeed, float dwellTime)
         {
             cmp_mover.SetMoveSpeed(patrolMovementSpeed);
             Vector3 nextPosition = guardPosition;
-            if (patrolPath != null)
+
+            if (AtWaypoint())
             {
-                if (AtWaypoint())
+                if (isSuspicious && !CheckSuspiciousWaypoint())
                 {
-                    timeSinceLastArrived = 0;
-                    CycleWaypoint();
+                    dwellTime = -1f;
                 }
-                nextPosition = GetWaypointPosition();
+                timeSinceLastArrived = 0;
+                CycleWaypoint();
             }
-            if (!IsDwelling())
+
+            nextPosition = GetWaypointPosition();
+
+            if (!IsDwelling(dwellTime))
             {
                 cmp_mover.StartMoveAction(nextPosition);
             }
+            else
+            {
+                DwellBehavior();
+            }
+        }
+
+        private bool CheckSuspiciousWaypoint()
+        {
+ 
+            return patrolPath.GetWaypointID(currentWaypointIndex) == susWaypointObjID;
+        }
+
+        private void DwellBehavior()
+        {
 
         }
 
@@ -161,27 +111,22 @@ namespace LD47.Control
             return patrolPath.GetWaypointPosition(currentWaypointIndex);
         }
 
-        bool IsDwelling()
+        bool IsDwelling(float dwellTime)
         {
-            return timeSinceLastArrived < patrolDwellTime;
-        }
-
-        void OnDrawGizmosSelected()
-        {
-            Gizmos.color = Color.magenta;
-            Gizmos.DrawWireSphere(transform.position, chaseDistance);
+            return timeSinceLastArrived < dwellTime;
         }
 
         void UpdateTimers()
         {
             timeSinceLastArrived += Time.deltaTime;
-            timeSinceLastSawPlayer += Time.deltaTime;
-            timeSinceAggro += Time.deltaTime;
         }
-        public void Aggrovate()
+
+        public void AlertGuardDog(int susWaypoint)
         {
-            timeSinceAggro = 0f;
-            print("I'm pissed now!!");
+            isSuspicious = true;
+            print(isSuspicious);
+            susWaypointObjID = susWaypoint;
+            GetComponent<Detector>().SetGuardDogAlert(true);
         }
     }
 }

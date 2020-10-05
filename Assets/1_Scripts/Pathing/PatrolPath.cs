@@ -30,6 +30,11 @@ namespace LD47.Pathing
         {
             return waypoints[i].position;
         }
+
+        public int GetWaypointID(int i)
+        {
+            return waypoints[i].gameObject.GetInstanceID();
+        }
        
         private void BuildList()
         {

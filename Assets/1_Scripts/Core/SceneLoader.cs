@@ -5,11 +5,16 @@ using UnityEngine.SceneManagement;
 
 namespace LD47.Core
 {
-    public class LevelManager : MonoBehaviour
+    public class SceneLoader : MonoBehaviour
     {
-        [SerializeField] [Range(1, 30)] float levelLoadDelay = 3f;
+        [SerializeField] [Range(0, 10)] float levelRestartDelay = 3f;
 
-        void LoadNextScene()
+        public void LoadLevel(int sceneIndex)
+        {
+            SceneManager.LoadScene(sceneIndex);
+        }
+
+        public void LoadLevel()
         {
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
             int nextScene = ++currentSceneIndex % SceneManager.sceneCountInBuildSettings;
@@ -17,21 +22,18 @@ namespace LD47.Core
             SceneManager.LoadScene(nextScene);
         }
 
-        void ReloadScene()
+        public void ReloadLevel()
+        {
+            StartCoroutine(ReloadScene());
+        }
+
+        IEnumerator ReloadScene()
         {
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
+            yield return new WaitForSeconds(levelRestartDelay);
+
             SceneManager.LoadScene(currentSceneIndex);
-        }
-
-        public void ReloadLevel()
-        {
-            Invoke("ReloadScene", levelLoadDelay);
-        }
-
-        public void LoadNextLevel()
-        {
-            Invoke("LoadNextScene", levelLoadDelay);
         }
     }
 
