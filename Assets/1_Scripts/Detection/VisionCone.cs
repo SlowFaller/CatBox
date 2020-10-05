@@ -27,7 +27,7 @@ namespace LD47.Detection
         [SerializeField] [Range(0.1f, 2f)] float viewBackHeight = 0.15f;
         [SerializeField] [Range(0.1f, 2f)] float viewBackWidth = 0.15f;
         [SerializeField] [Range(0.1f, 2f)] float viewFrontHeight = 0.18f;
-        [SerializeField] [Range(0.1f, 2f)] float viewFrontWidth = 1.0f;
+        [SerializeField] [Range(0.1f, 2f)] float viewFrontWidth = 5f;
         Vector3 center = Vector3.zero;
         GameObject Cone;
 

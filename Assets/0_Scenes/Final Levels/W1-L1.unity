@@ -940,6 +940,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Overpass_01a_snaps020
       objectReference: {fileID: 0}
+    - target: {fileID: 3227551484886688576, guid: d76d4c17c89261a459645505274b75d4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d76d4c17c89261a459645505274b75d4, type: 3}
 --- !u!1001 &370521110
@@ -1109,6 +1114,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Building_A_Wall_01c_snaps020 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5373639700943619528, guid: da185939b55e54e4080bf8c530551910,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 7564659171972094967, guid: da185939b55e54e4080bf8c530551910,
         type: 3}
@@ -2122,6 +2132,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_A_Door_Frame_01a_With_Door_snaps020
       objectReference: {fileID: 0}
+    - target: {fileID: 7185793430391086912, guid: 1e73baee0a4dcb347aca6660420af6ae,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e73baee0a4dcb347aca6660420af6ae, type: 3}
 --- !u!1001 &664507680
@@ -2528,6 +2543,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Overpass_01c_snaps020
       objectReference: {fileID: 0}
+    - target: {fileID: 4578843326347981260, guid: 6b3af8042f9f4ca4da8fb2513e0128e3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 4578843326348013036, guid: 6b3af8042f9f4ca4da8fb2513e0128e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2770,6 +2790,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Building_A_Wall_01a_snaps020
+      objectReference: {fileID: 0}
+    - target: {fileID: 3149791744515638426, guid: 8def56956581eb742bbffbce2934211f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 5489007221111097264, guid: 8def56956581eb742bbffbce2934211f,
         type: 3}
@@ -3056,6 +3081,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Building_Overpass_01a_snaps020 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227551484886688576, guid: d76d4c17c89261a459645505274b75d4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d76d4c17c89261a459645505274b75d4, type: 3}
@@ -3434,6 +3464,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Overpass_01c_snaps020 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4578843326347981260, guid: 6b3af8042f9f4ca4da8fb2513e0128e3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 4578843326348013036, guid: 6b3af8042f9f4ca4da8fb2513e0128e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3572,6 +3607,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_A_Wall_01c_snaps020 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5373639700943619528, guid: da185939b55e54e4080bf8c530551910,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 7564659171972094967, guid: da185939b55e54e4080bf8c530551910,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3695,6 +3735,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Building_Overpass_01b_snaps020
+      objectReference: {fileID: 0}
+    - target: {fileID: 2828060765773022604, guid: b2e6b5ec9ab6c8d4991b9ab56a4e565a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2e6b5ec9ab6c8d4991b9ab56a4e565a, type: 3}
@@ -4443,6 +4488,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 1867068849227326, guid: df159233b7037438b92f745daaa8393d, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 4572874038287590, guid: df159233b7037438b92f745daaa8393d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.9048014
@@ -4857,6 +4906,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 1000014082902004, guid: 3ccacde2242aa934f800f035549fe0c8, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 1668108674502366, guid: 3ccacde2242aa934f800f035549fe0c8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
@@ -5162,6 +5215,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_A_Wall_01c_snaps020
       objectReference: {fileID: 0}
+    - target: {fileID: 5373639700943619528, guid: da185939b55e54e4080bf8c530551910,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 7564659171972094967, guid: da185939b55e54e4080bf8c530551910,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5236,6 +5294,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Building_A_Wall_01a_snaps020 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3149791744515638426, guid: 8def56956581eb742bbffbce2934211f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 5489007221111097264, guid: 8def56956581eb742bbffbce2934211f,
         type: 3}

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace LD47.Detection
 {
@@ -8,6 +9,7 @@ namespace LD47.Detection
     {
         Light cmp_pointLight;
         bool alert = false;
+        [SerializeField] UnityEvent caught;
 
         void Awake()
         {
@@ -30,9 +32,11 @@ namespace LD47.Detection
         // should trigger when clipping the cone of vision
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.tag != "Player") {return;}
+            if (other.gameObject.tag != "Player") { return; }
+            
             alert = true;
-            print("I see you biatch!");
+            caught.Invoke();
+                       
         }
 
         public void SetGuardDogAlert(bool isAlerted)
