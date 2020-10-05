@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LD47.Core;
 
 namespace LD47.Control
 {
-    public class Scanning : MonoBehaviour
+    public class Scanning : MonoBehaviour, IAction
     {
         float scanTimer = 0.0f;
         float scanDuration = 0.0f;
@@ -18,6 +19,13 @@ namespace LD47.Control
 
         float leftSweep = 0.0f;
         float rightSweep = 0.0f;
+
+        ActionScheduler cmp_scheduler;
+
+        private void Awake()
+        {
+            cmp_scheduler = GetComponent<ActionScheduler>();
+        }
 
         // Update is called once per frame
         void Update()
@@ -133,6 +141,12 @@ namespace LD47.Control
                 // check for collision with wall here
 
             }
+        }
+
+        public void Cancel()
+        {
+            scanTimer = 0.0f;
+            isScanning = false;
         }
     }
 }

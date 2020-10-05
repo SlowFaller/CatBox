@@ -23,8 +23,10 @@ namespace LD47.Control
         int currentWaypointIndex = 0;
         int susWaypointObjID = 0;
         float timeSinceLastArrived = Mathf.Infinity;
+        float searchTime = 0;
         Vector3 guardPosition;
         [SerializeField] bool isSuspicious = false;
+        [SerializeField] bool atSusWaypoint = false;
 
         void Awake()
         {
@@ -40,16 +42,69 @@ namespace LD47.Control
 
         void Update()
         {
-            
+            if (isSuspicious && searchTime > suspicionDwellTime)
+            {
+                isSuspicious = false;
+                GetComponent<Detector>().SetGuardDogAlert(false);
+                searchTime = 0;
+                atSusWaypoint = false;
+                cmp_scanner.Cancel();                
+            }
 
             if (isSuspicious)
             {
+                cmp_mover.SetMoveSpeed(suspicionMovementSpeed);
+                Vector3 nextPosition = guardPosition;
+                int tempWaypoint = currentWaypointIndex;
 
-                PatrolBehavior(suspicionMovementSpeed, suspicionDwellTime);
+                if (AtWaypoint())
+                {
+                    if (CheckSuspiciousWaypoint())
+                    {
+                        atSusWaypoint = true;
+                    }
+                    timeSinceLastArrived = 0;
+                    CycleWaypoint();
+                    
+                }
+
+                if (IsDwelling(suspicionDwellTime) && atSusWaypoint)
+                {
+                    searchTime += Time.deltaTime;
+                    if (timeSinceLastArrived < Mathf.Epsilon)
+                    {
+                        DwellBehavior(suspicionDwellTime);
+                    }
+                }
+                else
+                {
+                    cmp_mover.StartMoveAction(GetWaypointPosition());
+                    
+                }
+
             }
             else
             {
-                PatrolBehavior(patrolMovementSpeed, patrolDwellTime);
+                cmp_mover.SetMoveSpeed(patrolMovementSpeed);
+                Vector3 nextPosition = guardPosition;
+
+                if (AtWaypoint())
+                {
+                    timeSinceLastArrived = 0;
+                    CycleWaypoint();
+                }
+
+                if (!IsDwelling(patrolDwellTime))
+                {  
+                    cmp_mover.StartMoveAction(GetWaypointPosition());
+                }
+                else
+                {
+                    if (timeSinceLastArrived < Mathf.Epsilon)
+                    {
+                        DwellBehavior(patrolDwellTime);
+                    }
+                }
             }
 
             UpdateTimers();
@@ -60,35 +115,15 @@ namespace LD47.Control
             return transform.position;
         }
 
-        void PatrolBehavior(float movementSpeed, float dwellTime)
+        void PatrolBehavior(float movementSpeed)
         {
             cmp_mover.SetMoveSpeed(patrolMovementSpeed);
             Vector3 nextPosition = guardPosition;
 
             if (AtWaypoint())
             {
-                if (isSuspicious && !CheckSuspiciousWaypoint())
-                {
-                    dwellTime = -1f;
-                }
                 timeSinceLastArrived = 0;
-                CycleWaypoint();
-            }
-
-            nextPosition = GetWaypointPosition();
-
-            if (!IsDwelling(dwellTime))
-            {
-                cmp_mover.StartMoveAction(nextPosition);
-            }
-            else
-            {
-                if(timeSinceLastArrived < Mathf.Epsilon)
-                {
-                    DwellBehavior();
-                }
-                
-            }
+            }           
         }
 
         private bool CheckSuspiciousWaypoint()
@@ -97,9 +132,9 @@ namespace LD47.Control
             return patrolPath.GetWaypointID(currentWaypointIndex) == susWaypointObjID;
         }
 
-        void DwellBehavior()
+        void DwellBehavior(float scanTime)
         {
-            cmp_scanner.SetScanTimeAndStartSweep(5.0f);
+            cmp_scanner.SetScanTimeAndStartSweep(scanTime);
         }
 
         bool AtWaypoint()
@@ -131,10 +166,23 @@ namespace LD47.Control
 
         public void AlertGuardDog(int susWaypoint)
         {
+            if (isSuspicious)
+            {
+                isSuspicious = false;
+                GetComponent<Detector>().SetGuardDogAlert(false);
+                searchTime = 0;
+                atSusWaypoint = false;
+                cmp_scanner.Cancel();
+            }
             isSuspicious = true;
-            print(isSuspicious);
             susWaypointObjID = susWaypoint;
             GetComponent<Detector>().SetGuardDogAlert(true);
+
+            if (AtWaypoint())
+            {
+                timeSinceLastArrived = Mathf.Infinity;
+                cmp_mover.StartMoveAction(guardPosition);
+            }
         }
     }
 }
