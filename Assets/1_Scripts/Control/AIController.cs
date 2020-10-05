@@ -7,7 +7,6 @@ namespace LD47.Control
     public class AIController : MonoBehaviour
     {
         private const string TAG = "Player";
-
         [Header("Suspicion")]
         [SerializeField] [Range(0, 5f)] float suspicionMovementSpeed = 4f;
         [SerializeField] [Range(0, 10f)] float suspicionDwellTime = 5f;
