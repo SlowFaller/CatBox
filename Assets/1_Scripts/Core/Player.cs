@@ -10,10 +10,32 @@ namespace LD47.Core
         [Header("Object Sockets")]
         [SerializeField] Transform costumeSocket;
         [SerializeField] GameObject pickupSocket;
+        [SerializeField] GameObject popupText;
 
         bool playerCanPickup = false;
         Waypoint waypointInRange = null;
         Waypoint waypointHeld = null;
+        Vector3 tempPos;
+        [SerializeField] bool showPopup;
+
+        private void Start()
+        {
+            if (showPopup)
+            {
+                popupText.SetActive(true);   
+            }
+            else
+            {
+                popupText.SetActive(false);
+            }
+        }
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+            {
+                popupText.SetActive(false);
+            }
+        }
 
         private void OnTriggerEnter(Collider other)
         {
