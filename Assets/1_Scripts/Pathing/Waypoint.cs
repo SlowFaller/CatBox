@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace LD47.Pathing
 {
@@ -6,6 +7,11 @@ namespace LD47.Pathing
     public class Waypoint : MonoBehaviour
     {
         private const string TAG = "Player";
+
+        [SerializeField] WaypointEvent waypointDisrupted;
+
+        [System.Serializable]
+        public class WaypointEvent : UnityEvent<int> { }
 
         [SerializeField] bool isPickedUp = false;
         [SerializeField] ParticleSystem waypointFX;
@@ -56,6 +62,8 @@ namespace LD47.Pathing
             GetComponentInParent<DrawPaths>().DrawingPathLines(true);
             waypointFX.Stop();
             isPickedUp = true;
+            waypointDisrupted.Invoke(gameObject.GetInstanceID());
+            print("I broadcasted " + gameObject.GetInstanceID());
         }
 
         public void PlaceWaypoint()

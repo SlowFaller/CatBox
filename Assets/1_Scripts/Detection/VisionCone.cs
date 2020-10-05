@@ -41,7 +41,7 @@ namespace LD47.Detection
             mesh.name = "Cone";
             Cone.AddComponent<MeshFilter>();
             Cone.GetComponent<MeshFilter>().mesh = mesh;
-            Cone.AddComponent<MeshRenderer>();
+            Cone.AddComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
             List<Material> materialList = new List<Material>();
             //materialList.AddResource("emission_yellow");
             materialList.AddResource("trans_red");
