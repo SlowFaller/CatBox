@@ -21,19 +21,16 @@ namespace LD47.Core
 
             SceneManager.LoadScene(nextScene);
         }
-
-        public void ReloadLevel()
-        {
-            StartCoroutine(ReloadScene());
-        }
-
-        IEnumerator ReloadScene()
+        void ReloadScene()
         {
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-            yield return new WaitForSeconds(levelRestartDelay);
-
             SceneManager.LoadScene(currentSceneIndex);
+        }
+
+        public void ReloadLevel()
+        {
+            Invoke("ReloadScene", levelRestartDelay);
         }
     }
 

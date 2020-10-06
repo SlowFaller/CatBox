@@ -6,15 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/0_Scenes/StartMenu.unity
+    path: Assets/0_Scenes/Final Levels/StartMenu.unity
     guid: 3e5edb8cd7c54774eae296e5741e5a5b
   - enabled: 1
     path: Assets/0_Scenes/Final Levels/W1-L1.unity
     guid: be2296ab5ae28c643ad9c11e399a5295
   - enabled: 1
-    path: Assets/0_Scenes/Final Levels/W1-L2.unity
-    guid: 18bb86d5ac3d3ec4f85bc85ce3f330b4
-  - enabled: 1
-    path: Assets/0_Scenes/Final Levels/W1-L3.unity
-    guid: d5c6a1d647f554a438099b7997475d00
+    path: Assets/0_Scenes/Final Levels/EndScreen.unity
+    guid: 76287c116697ea4419b4a49e5b5ea192
   m_configObjects: {}

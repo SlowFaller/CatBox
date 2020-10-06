@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LD47.Core;
 
 namespace LD47.Control
 {
-    public class Scanning : MonoBehaviour
+    public class Scanning : MonoBehaviour, IAction
     {
         float scanTimer = 0.0f;
         float scanDuration = 0.0f;
@@ -12,12 +13,29 @@ namespace LD47.Control
         float scanRemainder = 0.0f;
         float scanSpeed = 1.0f;
         bool startLeft = false;
+        bool wallDetected = false;
 
         float minDegreesSweep = 65.0f;
         float maxDegreesSweep = 90.0f;
 
         float leftSweep = 0.0f;
         float rightSweep = 0.0f;
+
+        [SerializeField] float amplitude = 0.5f;
+        [SerializeField] float frequency = 1f;
+
+        Vector3 posOffset = new Vector3();
+        Vector3 tempPos = new Vector3();
+
+        ActionScheduler cmp_scheduler;
+
+        private void Awake()
+        {
+            cmp_scheduler = GetComponent<ActionScheduler>();
+            frequency = Random.Range(.6f, 1.3f);
+            amplitude = Random.Range(0f, .2f);
+            
+        }
 
         // Update is called once per frame
         void Update()
@@ -36,6 +54,11 @@ namespace LD47.Control
                     isScanning = false;
                 }
             }
+            else if (!isScanning && wallDetected)
+            {
+                SetScanTimeAndStartSweep();
+            }
+            OscillateVertically();     
         }
 
         bool StartLeftNotRight()
@@ -85,12 +108,11 @@ namespace LD47.Control
                 float delta = Time.deltaTime * leftSweep;
                 float bobAmt = Mathf.Sin(scanTimer) * 0.5f; //0.5f to slow it down a bit
 
-                //transform.position = new Vector3(transform.position.x, bobAmt, transform.position.z);
                 transform.Rotate(0.0f, delta, 0.0f, Space.Self);
 
                 // recalculate remainder
                 scanRemainder -= delta;
-                if(scanRemainder <= 0.0f)
+                if(scanRemainder < 0.0f)
                 {
                     toggleDirection();
                     if(startLeft)
@@ -102,8 +124,19 @@ namespace LD47.Control
                         scanRemainder = rightSweep;
                     }
                 }
-
-                // check for collision with wall here
+                else if (wallDetected)
+                {
+                    toggleDirection();
+                    if (startLeft)
+                    {
+                        scanRemainder += leftSweep;
+                    }
+                    else
+                    {
+                        scanRemainder += rightSweep;
+                    }
+                    wallDetected = false;
+                }
                 
             }
             else
@@ -112,12 +145,11 @@ namespace LD47.Control
                 float delta = Time.deltaTime * rightSweep;
                 float bobAmt = Mathf.Sin(scanTimer) * 0.5f; //0.5f to slow it down a bit
 
-                //transform.position = new Vector3(transform.position.x, bobAmt, transform.position.z);
                 transform.Rotate(0.0f, -delta, 0.0f, Space.Self);
 
                 // recalculate remainder
                 scanRemainder -= delta;
-                if(scanRemainder <= 0.0f)
+                if(scanRemainder < 0.0f)
                 {
                     toggleDirection();
                     if(startLeft)
@@ -129,10 +161,43 @@ namespace LD47.Control
                         scanRemainder = rightSweep;
                     }
                 }
-
-                // check for collision with wall here
-
+                else if (wallDetected)
+                {
+                    toggleDirection();
+                    if (startLeft)
+                    {
+                        scanRemainder += leftSweep;
+                    }
+                    else
+                    {
+                        scanRemainder += rightSweep;
+                    }
+                    wallDetected = false;
+                } 
             }
+        }
+
+        void OscillateVertically()
+        {
+            if (Time.timeScale < 1) { return; }
+            tempPos = transform.position;
+            tempPos.y += (Mathf.Sin(Time.fixedTime * Mathf.PI * frequency) * amplitude) + amplitude;
+            tempPos.x = transform.position.x;
+            tempPos.z = transform.position.y;
+
+            transform.position = new Vector3(transform.position.x, tempPos.y, transform.position.z);
+        }
+
+
+        public void Cancel()
+        {
+            scanTimer = 0.0f;
+            isScanning = false;
+        }
+        public void SetWallDetected(bool wallToLeft)
+        {
+            // wallDetected = true;
+            // startLeft = wallToLeft;
         }
     }
 }

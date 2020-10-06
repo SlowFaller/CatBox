@@ -123,6 +123,7 @@ MonoBehaviour:
   patrolDwellTime: 1.98
   waypointTolerance: 1
   isSuspicious: 0
+  atSusWaypoint: 0
 --- !u!114 &3783298259279135880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,7 +142,7 @@ MonoBehaviour:
   viewBackHeight: 0.15
   viewBackWidth: 0.15
   viewFrontHeight: 0.18
-  viewFrontWidth: 1
+  viewFrontWidth: 1.5
 --- !u!114 &2740687289417575853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,6 +155,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc2dd902e9d088e4fb3f4b9b79c01a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  caught:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3093226297050783853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +171,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isScanning: 0
+  amplitude: 0.1
+  frequency: 1
 --- !u!1 &3086454220904461665
 GameObject:
   m_ObjectHideFlags: 0

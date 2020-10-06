@@ -20,21 +20,7 @@ namespace LD47.Control
             //cmp_health = GetComponent<Health>();  
             //cmp_animator = GetComponent<Animator>();
         }
-
-        // void Update()
-        // {
-        //     cmp_agent.enabled = !cmp_health.IsDead();
-        //     UpdateAnimator();
-        // }
-
-        // void UpdateAnimator()
-        // {
-        //     Vector3 localVelocity = transform.InverseTransformDirection(cmp_agent.velocity);
-        //     float speed = localVelocity.z;
-
-        //     cmp_animator.SetFloat("forwardSpeed", speed);
-        // }
-
+        
         float GetPathLength(NavMeshPath path)
         {
             float pathLength = 0f;
