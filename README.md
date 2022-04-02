@@ -1,9 +1,7 @@
-# Ludum Dare 47
-A repo for Play / Die / Repeat's Ludum Dare 47 entry.
+# CatBox
+CatBox
 
 ## Project Folder Structure
-I've implemented the same project folder structure I used on a previous project.  We can make changes as necessary throughout development, but I thought it would be useful to start us out withg a basic framework.
-
 #### 0_Scenes
  - Scenes are stored in this folder
  - Subfolders exist for each scene for scene specifc resources like terrain
